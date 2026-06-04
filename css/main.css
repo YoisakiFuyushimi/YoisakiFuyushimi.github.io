@@ -1385,7 +1385,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ffd461;
+    background: #399dff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2937,4 +2937,104 @@ body {
   font-size: 14px;
   color: #555;
   font-weight: normal;
+}
+/* ============ 文章目录树小部件 ============ */
+.post-tree-widget {
+  margin-top: 15px;
+  border-top: 1px solid #eee;
+  padding-top: 12px;
+  font-size: 13px;
+}
+.post-tree-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  padding: 0 4px;
+  cursor: pointer;
+  user-select: none;
+}
+.post-tree-header i.fa-folder-open {
+  color: #f0ad4e;
+  font-size: 14px;
+}
+.post-tree-header span {
+  flex: 1;
+  font-weight: 600;
+  color: #555;
+}
+.post-tree-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 4px;
+  color: #999;
+  font-size: 12px;
+  transition: transform 0.2s;
+}
+.post-tree-toggle.collapsed i {
+  transform: rotate(-90deg);
+}
+.post-tree-content {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.post-tree-content.collapsed {
+  max-height: 0 !important;
+}
+.post-tree-list,
+.post-tree-children {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 16px;
+}
+.post-tree-list {
+  padding-left: 0;
+}
+.post-tree-folder-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+  cursor: pointer;
+  color: #666;
+  font-size: 13px;
+  transition: color 0.15s;
+}
+.post-tree-folder-label:hover {
+  color: #333;
+}
+.post-tree-folder-label i.fa-folder {
+  color: #f0ad4e;
+  font-size: 12px;
+  width: 16px;
+  text-align: center;
+}
+.post-tree-file a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+  padding-left: 0px;
+  color: #555;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.15s, padding-left 0.15s;
+}
+.post-tree-file a:hover {
+  color: #1890ff;
+  padding-left: 4px;
+}
+.post-tree-file i.fa-file-text-o {
+  color: #999;
+  font-size: 12px;
+  width: 16px;
+  text-align: center;
+}
+.post-tree-empty {
+  color: #ccc;
+  font-size: 12px;
+  text-align: center;
+  padding: 10px 0;
 }
