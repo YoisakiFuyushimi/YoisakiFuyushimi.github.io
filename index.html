@@ -12,6 +12,89 @@
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
+<style>
+/* === 文件管理器样式 === */
+#fm-container { margin-top: 10px; }
+.fm-header {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+  user-select: none;
+}
+.fm-header:hover { background: rgba(0,0,0,0.02); }
+.fm-title { flex: 1; }
+.fm-chevron { font-size: 11px; color: #999; transition: transform 0.2s; }
+.fm-status { font-size: 11px; color: #999; font-weight: normal; }
+.fm-body { font-size: 13px; }
+.fm-toolbar {
+  display: flex;
+  gap: 4px;
+  padding: 6px 8px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #f0f0f0;
+}
+.fm-toolbar-spacer { flex: 1; }
+.fm-btn {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 2px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.fm-btn:hover { background: #f5f5f5; border-color: #ccc; }
+.fm-btn-token { padding: 2px 6px; }
+.fm-btn-refresh { padding: 2px 6px; }
+.fm-tree { max-height: 400px; overflow-y: auto; }
+.fm-placeholder {
+  padding: 20px 12px;
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+}
+.fm-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.fm-item:hover { background: rgba(0,0,0,0.04); }
+.fm-item-icon { min-width: 30px; }
+.fm-item-icon .fa { width: 14px; text-align: center; color: #666; }
+.fa-folder, .fa-folder-open { color: #e8a838 !important; }
+.fa-file-text-o { color: #666 !important; }
+.fm-item-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fm-item-actions {
+  display: none;
+  gap: 1px;
+  margin-right: 4px;
+}
+.fm-item:hover .fm-item-actions { display: flex; }
+.fm-act {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  padding: 0 2px;
+  opacity: 0.5;
+  line-height: 1;
+}
+.fm-act:hover { opacity: 1; }
+.fm-children {  }
+</style>
 
 
 
@@ -51,6 +134,7 @@
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
 <script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+<script src="/js/file-manager.js" defer></script>
 
   
 
@@ -175,6 +259,9 @@
               </ul>
             </div>
           </div>
+
+          <!-- 文件管理器 -->
+          <div id="fm-container" class="post-tree-widget"></div>
         </div>
       </div>
     </div>
